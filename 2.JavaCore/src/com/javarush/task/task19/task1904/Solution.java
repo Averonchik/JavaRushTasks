@@ -17,7 +17,6 @@ public class Solution {
     }
 
     public static class PersonScannerAdapter implements PersonScanner {
-
         private final Scanner fileScanner;
 
         public PersonScannerAdapter(Scanner scanner) {

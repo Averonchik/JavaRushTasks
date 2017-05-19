@@ -24,7 +24,6 @@ public class Solution {
     }
 
     public static class TableAdapter implements BTable {
-
         private ATable aTable;
         public TableAdapter(ATable aTable) {
             this.aTable = aTable;

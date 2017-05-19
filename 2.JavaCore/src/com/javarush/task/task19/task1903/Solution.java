@@ -4,6 +4,7 @@ package com.javarush.task.task19.task1903;
 Адаптация нескольких интерфейсов
 */
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,38 +17,38 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+
     }
 
     public static class IncomeDataAdapter implements Customer, Contact {
         private IncomeData data;
+
         public IncomeDataAdapter(IncomeData data) {
             this.data = data;
         }
 
         @Override
         public String getCompanyName() {
-            return data.getCompany();
+            return this.data.getCompany();
         }
 
         @Override
         public String getCountryName() {
-            return countries.get(data.getCountryCode());
+            return countries.get(this.data.getCountryCode());
         }
 
         @Override
         public String getName() {
-            return data.getContactLastName() + ", " + data.getContactFirstName();
+            return this.data.getContactLastName() + ", " + this.data.getContactFirstName();
         }
 
         @Override
         public String getPhoneNumber() {
-            String number = data.getPhoneNumber() + "";
+            int num = this.data.getPhoneNumber();
+            DecimalFormat format = new DecimalFormat("0000000000");
+            String number = format.format(num);
 
-            while (number.length()<10) {
-                number = "0" + number;
-            }
-
-            return "+" + data.getCountryPhoneCode() + "(" + number.substring(0, 3) + ")" + number.substring(3, 6) + "-" + number.substring(6, 8) + "-" + number.substring(8);
+            return "+" + this.data.getCountryPhoneCode() + "(" + number.substring(0, 3) + ")" + number.substring(3, 6) + "-" + number.substring(6, 8) + "-" + number.substring(8, 10);
         }
     }
 
