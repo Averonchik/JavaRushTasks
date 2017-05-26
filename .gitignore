@@ -1,4 +1,4 @@
-# Windows image file caches
+﻿# Windows image file caches
 Thumbs.db
 ehthumbs.db
 
@@ -51,3 +51,4 @@ Temporary Items
 Инструкция.png
 out/production/Quest#2/Quest.info
 *.info
+out/production/
