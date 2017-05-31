@@ -13,7 +13,7 @@ public class Solution {
         //исправьте outputStream/inputStream в соответствии с путем к вашему реальному файлу
         try {
 
-            File your_file_name = File.createTempFile("your_file_name", null);
+            File your_file_name = File.createTempFile("c:/1/1.txt", null);
             OutputStream outputStream = new FileOutputStream(your_file_name);
             InputStream inputStream = new FileInputStream(your_file_name);
 
@@ -23,7 +23,8 @@ public class Solution {
 
             Human somePerson = new Human();
             somePerson.load(inputStream);
-            //check here that ivanov equals to somePerson - проверьте тут, что ivanov и somePerson равны
+            if (ivanov.equals(somePerson))
+                System.out.println("yes");
             inputStream.close();
 
         } catch (IOException e) {
@@ -71,39 +72,26 @@ public class Solution {
 
         public void save(OutputStream outputStream) throws Exception {
             PrintWriter writer = new PrintWriter(outputStream);
-            String hasName = assets != null ? "yes" : "no";
-            writer.println(hasName);
-
-            int sizeAssets = assets.size();
-            writer.println(sizeAssets);
-
             writer.println(name);
-
-            if (sizeAssets>0)
-                for (Asset asset : assets) {
-                writer.println(asset.getName());
-                writer.println(asset.getPrice());
+            String isAssets = assets.isEmpty() ? "no" : "yes";
+            writer.println(isAssets);
+            if (!assets.isEmpty()) {
+                for (int i = 0; i < assets.size(); i++) {
+                    writer.println(assets.get(i).getName());
                 }
-
-            writer.close();
-
+            }
+            writer.flush();
         }
 
         public void load(InputStream inputStream) throws Exception {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
-            String hasName = reader.readLine();
-            if (hasName.equals("yes")) {
-                int sizeAssets = Integer.parseInt(reader.readLine());
-                name = reader.readLine();
-                if (sizeAssets>0) {
-                    for (int i = 0; i < sizeAssets; i++) {
-                        assets.add(new Asset(reader.readLine()));
-                        assets.get(assets.size()-1).setPrice(Double.parseDouble(reader.readLine()));
-                    }
+            name = reader.readLine();
+            String isAssets = reader.readLine();
+            if (isAssets.equals("yes")){
+                while (reader.ready()){
+                    assets.add(new Asset(reader.readLine()));
                 }
             }
-            reader.close();
         }
     }
 }
