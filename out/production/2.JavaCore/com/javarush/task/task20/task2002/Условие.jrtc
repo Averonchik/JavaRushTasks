@@ -1,7 +1,17 @@
-<div class="wdghtml" taskKey="com.javarush.task.task20.task2002">
-<h3>Читаем и пишем в файл: JavaRush</h3>
-<p>Реализуйте логику записи в файл и чтения из файла для класса <span class="text-corporate"><strong>JavaRush</strong></span>.<br />
-В файле <strong>your_file_name.tmp</strong> может быть несколько объектов <span class="text-corporate"><strong>JavaRush</strong></span>.<br />
-Метод <mark>main</mark> реализован только для вас и не участвует в тестировании.</p>
+taskKey="com.javarush.task.task20.task2002"
 
-</div>
+Читаем и пишем в файл: JavaRush
+
+Реализуйте логику записи в файл и чтения из файла для класса JavaRush.
+В файле your_file_name.tmp может быть несколько объектов JavaRush.
+Метод main реализован только для вас и не участвует в тестировании.
+
+
+Требования:
+1.	Логика чтения/записи реализованная в методах save/load должна работать корректно в случае, если список users пустой.
+2.	Логика чтения/записи реализованная в методах save/load должна работать корректно в случае, если список users не пустой.
+3.	Класс Solution.JavaRush не должен поддерживать интерфейс Serializable.
+4.	Класс Solution.JavaRush должен быть публичным.
+5.	Класс Solution.JavaRush не должен поддерживать интерфейс Externalizable.
+
+
