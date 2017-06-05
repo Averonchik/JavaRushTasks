@@ -50,4 +50,4 @@ Temporary Items
 *.properties
 Инструкция.png
 *.info
-out/production/
+out/production
